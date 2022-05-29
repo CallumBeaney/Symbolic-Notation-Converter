@@ -2,24 +2,69 @@
 <head>
 	<title>Symbolic Notation Converter</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 </head>
+<body>
 
-<body><center>
+    <div class='pagelayout'>
+        <div class='row'>
+            <div class='column'>
+                <div class='inputs-column'>
+                <center>
+                    
+                    <br><br>
+                    <td><textarea class="outputbox" id="raw" type="text" 
+                        onblur="if(this.value=='')
+                        {this.value='OUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.';}" 
+                        onfocus="if(this.value=='OUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.')
+                        {this.value = ''}"/></textarea></td>
+                <br><br>
+                <tr>
+                    <td><textarea class="inputbox" id="raw" type="text"
+                        onblur="if(this.value=='')
+                                {this.value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q';}" 
+                        onfocus="if(this.value=='INPUT: All n in Evens. exists p, q in Primes. n equals p add q')
+                                {this.value = ''}"/></textarea></td>
+                </tr>            
+        
+                </center>
+                </div>
+          </div>
+          
+          <div class='column'>
+            <div class='green-column'>
+            <center>
+                <pre>
+                    
+All n in Evens. exists p, q in Primes. n equals p add q'
+↓
+∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.
 
-    <div style="width:1000px"><table style="padding:0px 80px 0px 80px;" id="tablestyle">
-	</table>
-	<br>
 
-    <!-- <label for="name">Name (4 to 8 characters):</label> -->
+DICTIONARY
 
-    <input type="text" id="outputfield" class="outputbox">
-    <br>
-    <input type="text" id="inputfield" class="inputbox">
-    <!-- TODO: text wrap. box scroll. enlarge option. -->
+ALL/EVERY   ∀
+IN          ∈
+EXIST/S     ∃
+EQUALS      =
+ADD/PLUS    +
 
 
+This program was conceived by Callum Beaney 
+and Jim Miles for quick conversion from 
+verbose input to symbolic notation.
 
-</center></body>
+                </pre>
+            </center>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
-<!-- document.getElementById("tablecontents").innerHTML=tablecontentsmarkup; -->
+</div>
+
+</body>

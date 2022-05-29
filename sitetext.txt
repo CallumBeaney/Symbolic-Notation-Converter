@@ -1,6 +1,6 @@
 EXAMPLE:
 
-    ALL n IN Evens. EXISTS p, q IN Primes. n EQUALS p ADD q
+    All n in Evens. exists p, q in Primes. n equals p add q
                             ↓
             ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q. 
 

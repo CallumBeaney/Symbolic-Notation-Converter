@@ -1,38 +1,81 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-html, body{
+.pagelayout {
+    margin: 15px;
+    /* Colour for debugging */
+    /* background-color: red; */
+  }
+  
+  html, body{
     margin: 0;
     padding: 0;
-    /*height:100%;*/
     font-family: 'Roboto', sans-serif;
+    height:100%;
     background-color: #282828; /*eigengrau 16161D*/
-}
+    color: #DDDDDD;
+  }
 
-.outputbox {
-    width: 700px; 
-    height: 200px; 
-    font-size: 1.4rem; 
-    align-content: center;
+    pre {
+        color: #DDDDDD;
+    }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .column {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  
+  .inputs-column {
+    /* Colour for debugging */
+    /* background-color: blue;  */
+    height: 100px;
+    width: 100%;
+  }
+  
+  .text-column {
+    /* Colour for debugging */
+    /* background-color: green; */
+    height: 100px;
+    width: 100%;
+  }
+
+  .outputbox {
+    width: 45vw; 
+    height: 30vh; 
+    font-size: 1.1rem; 
     color: #DDDDDD;
     background-color: #1e1e1e; 
+    overflow:auto;
 }
 
 .inputbox {
-    width: 700px; 
-    height: 200px; 
+    width: 45vw; 
+    height: 30vh; 
     font-size: 1.1rem; 
     color: #161616; 
     background-color: #DDDDDD; 
-    text-align: left;
+    overflow:auto;
 }
+  
 
-
-@media screen and (max-width: 700px){
-    .box{
-      width: 75%;
+@media screen and (max-width:780px){
+    
+    .sitelayout{
+        grid-template-columns: 1fr;
     }
-    .popup{
-      width: 75%;
+    .leftcolumn{
+        padding:0;
+        padding-top: 5rem;
+    }
+    .rightcolumn{
+        padding: 0;
+
     }
   }
-
