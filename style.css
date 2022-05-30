@@ -20,6 +20,8 @@ html, body{
     }
         .leftcolumn{
             padding-top: 10vh;
+            padding-bottom: 5vh;
+            padding-left: 5vh;
             text-align: center;
         }
             .leftcolumn a, p{
