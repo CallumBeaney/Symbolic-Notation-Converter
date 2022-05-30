@@ -1,54 +1,51 @@
-.pagelayout {
-    margin: 15px;
-    /* Colour for debugging */
-    /* background-color: red; */
-  }
-  
-  html, body{
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+html, body{
     margin: 0;
     padding: 0;
+    /*height:100%;*/
     font-family: 'Roboto', sans-serif;
-    height:100%;
     background-color: #282828; /*eigengrau 16161D*/
     color: #DDDDDD;
-  }
 
-    pre {
-        color: #DDDDDD;
+}
+        h2, .brgrey{
+            color: #DDDDDD;
+        }
+
+.sitelayout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     }
+        .leftcolumn{
+            padding-top: 10vh;
+            text-align: center;
+        }
+            .leftcolumn a, p{
+                font-size: 1 rem;
+                padding-bottom: 25px;
+                margin: 0;
+                color: #DDDDDD;
+            }
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  
-  .column {
-    margin-top: 5vh;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-  }
-  
-  .inputs-column {
-    /* Colour for debugging */
-    /* background-color: blue;  */
-    height: 100px;
-    width: 100%;
-  }
-  
-  .text-column {
-    /* Colour for debugging */
-    /* background-color: green; */
-    height: 100px;
-    width: 100%;
-  }
+        .rightcolumn{
+            text-align: left;
+            text-justify: auto;
+            padding-top: 10vh;
+            padding-left: 2vh;
+            width: 85%;
+        }
+            .rightcolumn a, p{
+                font-size: 1 rem;
+                padding-bottom: 25px;
+                margin: 0;
+                color: #DDDDDD;
+        }
 
-  .outputbox {
-    width: 45vw; 
-    height: 30vh; 
+.outputbox {
+    width: 60vw; 
+    height: 35vh; 
     font-size: 1.1rem; 
     color: #DDDDDD;
     background-color: #1e1e1e; 
@@ -56,17 +53,23 @@
 }
 
 .inputbox {
-    width: 45vw; 
-    height: 30vh; 
+    width: 60vw; 
+    height: 35vh; 
     font-size: 1.1rem; 
     color: #161616; 
     background-color: #DDDDDD; 
     overflow:auto;
 }
-  
 
-@media screen and (max-width:780px){
-    
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+@media(max-width:780px){
     .sitelayout{
         grid-template-columns: 1fr;
     }
@@ -76,6 +79,14 @@
     }
     .rightcolumn{
         padding: 0;
-
+        padding-left:1.5rem;
+        padding-top:2rem;
     }
-  }
+    .innergridcont{
+        display: grid;
+        grid-template-columns: auto;
+        background-color: #2196F3;
+        padding: 0px;
+      }
+
+}
