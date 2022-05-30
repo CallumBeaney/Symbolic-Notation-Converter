@@ -1,6 +1,13 @@
-/*  TEST EXAMPLE
-    ALL n IN Evens. EXISTS p, EXISTS q IN Primes. n EQUALS p ADD q
-    ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q. 
+/*  
+
+    EXAMPLE INPUT: 
+    ALL n IN Evens. EXISTS p, EXISTS q IN Primes. n EQUALS p ADD q.
+
+    DESIRED OUTPUT:
+    ∀n ∈ Evens. ∃p, ∃q ∈ Primes. n = p + q. 
+
+    CURRENT OUTPUT:
+    ∀ n ∈ Evens. ∃ p, ∃ q ∈ Primes. n = p + q.
 */
 
 const prompt = require("prompt-sync")({ sigint: true });
@@ -84,43 +91,29 @@ for (i = 0; i < length; i++)
     else if (check == "dd" || check == "domain")        { process[i] = "𝔻"; }
     
     
-    
+    // TODO:
+    // ∫ ∬ ∮ ≈ ∑ √ ∏ ∞ ± `
 
-    
-
-       // ∫ ∬ ∮ ≈ ∑ √ ∏ ∞ ± `
-
-
-
-    // TODO: Trying many ways of removing space between specific whitespace-containing buckets in the process array. Failing.
-    // 
-    // (up above was: j = i + 1;)
-    //
-    // if (process[i] == "∃" || process[i] == "∀" && process[j] == " ")
-    // {
-    //     var index = process.indexOf(j);
-    //     process.splice(j, 1);
-    // }
 
     output = output.concat(" ", process[i]);
     
 }
 
 // TODO: Fix up this loop so it works!
-var k = 1;
-var outlength = output.length;
-for (var l = 0; i < outlength; l++)
-{
-    //TODO: check JS for syntax can declare k within loop?
-    if (output[l] == "¬" 
-     || output[l] == "∀"
-     || output[l] == "∃"
-     || output[l] == "∄" && output[k] == " ") 
-     {
-            // TODO: delete k-position whitespace 
-     }
-
-     k += 1;
-}
+// var k = 1;
+// var outlength = output.length;
+// for (var l = 0; i < outlength; l++)
+// {
+//     //TODO: check JS for syntax can declare k within loop conditions?
+//     if (output[l] == "¬" 
+//      || output[l] == "∀"
+//      || output[l] == "∃"
+//      || output[l] == "∄" && output[k] == " ") 
+//      {
+//         output = output.slice(0, l) + output.slice(k);   
+//         // output.splice(i+1, 1);  
+//      }
+//      k += 1;
+// }
 
 console.log(output);
