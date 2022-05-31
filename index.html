@@ -10,28 +10,22 @@
          
      </head>
      
-<body onload="document.getElementById('out').value='OUTPUT: ∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q.'; document.getElementById('in').value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.'" >
+<body onload="document.getElementById('in').value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.'" >
 
     <div class="sitelayout">    
         <div class="leftcolumn">
             
             <tr>
-            <td><textarea class="outputbox" id="out" type="text" 
-                onblur="if(this.value=='')
-                {this.value='OUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.';}" 
-                onfocus="if(this.value=='OUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.')
-                {this.value = ''}" contenteditable="true"></textarea></td>
-            <br><br>
-            </tr>
+                <!-- TODO: sort out positioning  -->
+                <td><div class="outputbox" id="out" contenteditable="true" ></div></td>
+            
+                <td><textarea class="inputbox" id="in" type="text"
+                    onblur="if(this.value=='')
+                            {this.value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.';}" 
+                    onfocus="if(this.value=='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.')
+                            {this.value = ''}" contenteditable="true"></textarea></td>
+            </tr> 
 
-            <!-- TODO: need " onkeyup="submitTextEntry()" in below? -->
-            <tr>
-            <td><textarea class="inputbox" id="in" type="text" 
-                onblur="if(this.value=='')
-                        {this.value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.';}" 
-                onfocus="if(this.value=='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.')
-                        {this.value = ''}"/></textarea></td>
-        </tr> 
         </div>
 
         <div class="rightcolumn">
