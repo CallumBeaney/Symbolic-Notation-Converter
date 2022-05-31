@@ -100,20 +100,20 @@ for (i = 0; i < length; i++)
 }
 
 // TODO: Fix up this loop so it works!
-// var k = 1;
-// var outlength = output.length;
-// for (var l = 0; i < outlength; l++)
-// {
-//     //TODO: check JS for syntax can declare k within loop conditions?
-//     if (output[l] == "¬" 
-//      || output[l] == "∀"
-//      || output[l] == "∃"
-//      || output[l] == "∄" && output[k] == " ") 
-//      {
-//         output = output.slice(0, l) + output.slice(k);   
-//         // output.splice(i+1, 1);  
-//      }
-//      k += 1;
-// }
+var k = 1;
+var outlength = output.length;
+for (var l = 0; i < outlength; l++)
+{
+    if (output[l] == "¬" 
+     || output[l] == "∀"
+     || output[l] == "∃"
+     || output[l] == "∄" && output[k] == " ") 
+     {
+        output = output.slice(0, l) + output.slice(k);   
+        // output.splice(k, 1);  
+     }
+     k += 1;
+}
+const screenOutput = output.join(" ");
 
-console.log(output);
+console.log(screenOutput);
