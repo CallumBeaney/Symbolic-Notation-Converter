@@ -18,35 +18,78 @@
             <tr>
                 <!-- TODO: sort out positioning  -->
                 <td><div class="outputbox" id="out" contenteditable="true" ></div></td>
-            
+                    <br>
                 <td><textarea class="inputbox" id="in" type="text"
                     onblur="if(this.value=='')
                             {this.value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.';}" 
                     onfocus="if(this.value=='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.')
                             {this.value = ''}" contenteditable="true"></textarea></td>
             </tr> 
-
+            <h2 style="text-align: center">English → Symbolic Notation</h2>            
         </div>
 
         <div class="rightcolumn">
-            <h2 style="text-align: center">English → Symbolic Notation</h2>
+               <div style="align-self: center;" class="scroll">
+<pre>DICTIONARY
+
+=   =   equal / s
++   =   plus, add
+-   =   minus
+×   =   times, *
+/   =   div
+≥   =   goe, >=
+≤   =   loe, <=
+%   =   mod
+MOD =   mod2
+    
+∈   =   in
+∧   =   and
+∨   =   or
+∃   =   exist / s
+¬   =   not, ~
+∀   =   all, every
+⇒   =   then, implies
+≡   =   iff, iaoi
+⟺  =   iff2, iaoi2
+
+∉   =   !in, notin, nin
+∄   =   !exist, notexist, 
+        nexist, nex
+≠   =   !=, =/=, dne 
+∴   =   therefore, andso
+∵   =   because, since 
+
+|   =   suchthat, st
+∪   =   union
+⊆   =   subsetof, subset
+∩   =   intersection, 
+        intsec
+⊂   =   propersubset,
+        propsub
+⊇   =   superset,
+        supset
+⊃   =   propersuperset,
+        propsupset
+⊄   =   !subset,
+        notsubset
+⊅   =   !superset,
+        notsup
+
+Ø   =   0set, emptyset
+ℕ   =   nn, natnum, 
+        natset
+ℤ   =   zz, intset
+ℚ   =   qq, ratset
+ℝ   =   rr, realset
+ℂ   =   cc, compset
+𝔻   =   dd, domain
+
+
+</pre>
+            </div>
+
             <p style="font-size:x-small; padding-left: 27%; width:50%;"><br><br>This program was conceived by Callum Beaney and worked on with Steve Beville & Jim Miles.<br>
-            <br>>>TODO: lay this out using code that isn't awful</p>           
-        <pre>
-
-                DICTIONARY
-
-            ALL/EVERY       ∀
-            IN              ∈
-            EXIST/S         ∃
-            EQUALS          =
-            ADD/PLUS        +
-            
-            >>TODO: make a 
-                scrolling form
-        </pre>
-
-            
+                
         </div>
     </div>
 

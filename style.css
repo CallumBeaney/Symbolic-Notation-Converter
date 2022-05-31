@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
 html, body{
     margin: 0;
     padding: 0;
@@ -19,7 +18,7 @@ html, body{
     grid-template-columns: 2fr 1fr;
     }
         .leftcolumn{
-            padding-top: 10vh;
+            padding-top: 5vh;
             padding-bottom: 5vh;
             padding-left: 5vh;
             text-align: center;
@@ -34,8 +33,7 @@ html, body{
         .rightcolumn{
             text-align: left;
             text-justify: auto;
-            padding-top: 10vh;
-            padding-left: 2vh;
+            padding-top: 5vh;
             width: 85%;
         }
             .rightcolumn a, p{
@@ -63,12 +61,30 @@ html, body{
     overflow:auto;
 }
 
+div.scroll {
+    background-color: #666666;
+    width: 100%;
+    height: 73vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+  
+    /* CSS just to show the bounds */
+    border: 2px solid;
+    background-color: #333333;
+    color: #999999;
+  
+  }
+
 pre {
     white-space: pre-wrap;       /* Since CSS 2.1 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+    font-size: medium;
 }
 
 @media(max-width:780px){

@@ -44,7 +44,7 @@ const shorthandLookupTable = [
     {Shorthand: '≠', UserInput: 'notequals'},
     {Shorthand: '≠', UserInput: '!='},
     {Shorthand: '∴', UserInput: 'therefore'},
-    {Shorthand: '∴', UserInput: 'and so'},
+    {Shorthand: '∴', UserInput: 'andso'},
     {Shorthand: '∵', UserInput: 'because'},
     {Shorthand: '∵', UserInput: 'bc'},
     {Shorthand: '∵', UserInput: 'since'},
