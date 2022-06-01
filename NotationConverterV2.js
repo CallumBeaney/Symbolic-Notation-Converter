@@ -29,9 +29,9 @@ const shorthandLookupTable = [
     {Shorthand: '⇒', UserInput: 'then'},
     {Shorthand: '⇒', UserInput: 'implies'},
     {Shorthand: '≡', UserInput: 'iff'},
-    {Shorthand: '≡', UserInput: 'iaoi'},
+    {Shorthand: '≡', UserInput: 'ioi'},
     {Shorthand: '⟺', UserInput: 'iff2'},
-    {Shorthand: '⟺', UserInput: 'iaoi2'},
+    {Shorthand: '⟺', UserInput: 'ioi2'},
     {Shorthand: '∉', UserInput: '!in'},
     {Shorthand: '∉', UserInput: 'nin'},
     {Shorthand: '∉', UserInput: 'notin'},
@@ -93,50 +93,48 @@ const shorthandLookupTable = [
     // ∫ ∬ ∮ ≈ ∑ √ ∏ ∞ ± `
 ]
 
+
+// Links to check up on 
+// https://www.youtube.com/watch?v=xogpUfUL5kY
+// https://www.youtube.com/watch?v=XF1_MlZ5l6M
+
 // This method worked on with Steve:
 
+
+var raw;
+var rawword = [];
+var rawwordlower = [];
+
+var paintedword = [];
+var painted;
+
 function submitTextEntry() {
-    // ORIGINAL: popup gets user input, make array of words split by whitespace
-    // const submittedTextArray = prompt('Enter text here').toLowerCase().split(' ');
+                                
+    raw = document.getElementById("raw").value;
 
-                                    
-// TODO: currently not working
-    var submittedTextArray;
-    submittedTextArray = document.getElementById("in").value;
+    rawword = raw.split(" ");
+    rawwordlower = raw.toLowerCase().split(" ");
+    
+    paintedword = [];
 
-    // array to store the converted (or untouched) words
-    let convertedTextArray = [];
+    for (i = 0; i < rawword.length; i++) 
+    {
+        paintedword[i] = rawword[i];
 
-    // bool to determine whether to add original word or not
-    let hasBeenAdded;
-
-    for (i = 0; i < submittedTextArray.length; i++) {
-        // set to false for each new word from array of user input
-        hasBeenAdded = false;
-
-        for (n = 0; n < shorthandLookupTable.length; n++) {
-            // check if submitted word matches UserInput property for object
-            if (shorthandLookupTable[n].UserInput == submittedTextArray[i]) {
-                // push the Shorthand symbol to array of converted words
-                convertedTextArray.push(shorthandLookupTable[n].Shorthand);
-                // set to true so original word can be ignored
-                hasBeenAdded = true;
-            } 
-        }
-        if (hasBeenAdded == false) {
-            // push original word to the converted array
-            convertedTextArray.push(submittedTextArray[i]);
+        for (n = 0; n < shorthandLookupTable.length; n++)
+        {
+            if (shorthandLookupTable[n].UserInput == rawwordlower[i])
+            {
+                paintedword[i] = shorthandLookupTable[n].Shorthand;
+            }
         }
     }
 
-    // make a string of the array words with a space between each
-    const convertedTextString = convertedTextArray.join(' ');
+    painted=paintedword.join(" "); 
+    
+    document.getElementById("out").innerHTML=painted;
 
-
-    // ORIGINAL: output to an empty paragraph on the webpage
-    // document.getElementById('output-box').innerHTML = "<p>" + convertedTextString + "</p>";
-
-    // TODO: Debug 
-    document.getElementById("out").innerHTML=convertedTextString;
-
+    setTimeout(submitTextEntry, 100);
 }
+
+submitTextEntry();

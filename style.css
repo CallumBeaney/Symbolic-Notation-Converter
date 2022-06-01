@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-roman.css');
 
 html, body{
     margin: 0;
@@ -23,30 +24,19 @@ html, body{
             padding-left: 5vh;
             text-align: center;
         }
-            .leftcolumn a, p{
-                font-size: 1 rem;
-                padding-bottom: 25px;
-                margin: 0;
-                color: #DDDDDD;
-            }
-
         .rightcolumn{
             text-align: left;
             text-justify: auto;
             padding-top: 5vh;
             width: 85%;
         }
-            .rightcolumn a, p{
-                font-size: 1 rem;
-                padding-bottom: 25px;
-                margin: 0;
-                color: #DDDDDD;
-        }
+
 
 .outputbox {
     width: 60vw; 
     height: 35vh; 
-    font-size: 1.1rem; 
+    font-family: 'Latin Modern Roman';
+    font-size: 1.5rem;
     color: #DDDDDD;
     background-color: #1e1e1e; 
     overflow:auto;
@@ -55,7 +45,8 @@ html, body{
 .inputbox {
     width: 60vw; 
     height: 35vh; 
-    font-size: 1.1rem; 
+    font-family: 'Roboto';
+    font-size: 1.3rem; 
     color: #161616; 
     background-color: #DDDDDD; 
     overflow:auto;
@@ -84,7 +75,7 @@ pre {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 
-    font-size: medium;
+    font-size:larger;
 }
 
 @media(max-width:780px){

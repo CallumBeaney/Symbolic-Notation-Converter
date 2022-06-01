@@ -6,29 +6,30 @@
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <meta http-equiv="X-UA-Compatible" content = "ie=edge">
          <link rel="stylesheet" href="style.css">
-         <title>Callum Beaney</title>
+         <title>English → Symbolic</title>
          
      </head>
      
-<body onload="document.getElementById('in').value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.'" >
+<body onload="document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . '" >
 
     <div class="sitelayout">    
         <div class="leftcolumn">
             
             <tr>
-                <!-- TODO: sort out positioning  -->
                 <td><div class="outputbox" id="out" contenteditable="true" ></div></td>
-                    <br>
-                <td><textarea class="inputbox" id="in" type="text"
+                    <br>    <!-- TODO: sort out positioning  -->
+
+                <td><textarea class="inputbox" id="raw" type="text" 
                     onblur="if(this.value=='')
-                            {this.value='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.';}" 
-                    onfocus="if(this.value=='INPUT: All n in Evens. exists p, q in Primes. n equals p add q.\nOUTPUT: ∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q.')
-                            {this.value = ''}" contenteditable="true"></textarea></td>
+                            {this.value='all n in Evens. exists p, q in Primes. n equals p add q . ';}" 
+                    onfocus="if(this.value=='all n in Evens. exists p, q in Primes. n equals p add q . ')
+                            {this.value = ''}"/></textarea></td> 
             </tr> 
             <h2 style="text-align: center">English → Symbolic Notation</h2>            
         </div>
 
         <div class="rightcolumn">
+            <!-- LIST HERE -->
                <div style="align-self: center;" class="scroll">
 <pre>DICTIONARY
 
@@ -41,23 +42,23 @@
 ≤   =   loe, <=
 %   =   mod
 MOD =   mod2
-    
+
 ∈   =   in
 ∧   =   and
 ∨   =   or
 ∃   =   exist / s
-¬   =   not, ~
+¬   =   not
 ∀   =   all, every
 ⇒   =   then, implies
-≡   =   iff, iaoi
-⟺  =   iff2, iaoi2
-
-∉   =   !in, notin, nin
-∄   =   !exist, notexist, 
-        nexist, nex
-≠   =   !=, =/=, dne 
+≡   =   iff, ioi
+⟺  =   iff2, ioi2
 ∴   =   therefore, andso
 ∵   =   because, since 
+
+≠   =   !=, =/=, dne 
+∉   =   !in, notin, nin
+∄   =   !exist, notexist, 
+         nexist, nex
 
 |   =   suchthat, st
 ∪   =   union
@@ -70,25 +71,29 @@ MOD =   mod2
         supset
 ⊃   =   propersuperset,
         propsupset
-⊄   =   !subset,
-        notsubset
-⊅   =   !superset,
-        notsup
 
-Ø   =   0set, emptyset
-ℕ   =   nn, natnum, 
-        natset
+⊄   =   !subset,
+         notsubset
+⊅   =   !superset,
+         notsup
+
+ℕ   =   nn, natset
 ℤ   =   zz, intset
 ℚ   =   qq, ratset
 ℝ   =   rr, realset
 ℂ   =   cc, compset
 𝔻   =   dd, domain
+Ø   =   0set, emptyset
 
+
+Suggestions? 
+Get in touch at (link)
 
 </pre>
+<!-- ALT TO RESEARCH https://www.youtube.com/watch?v=Zrte7QVPuLY -->
             </div>
 
-            <p style="font-size:x-small; padding-left: 27%; width:50%;"><br><br>This program was conceived by Callum Beaney and worked on with Steve Beville & Jim Miles.<br>
+            <p style="font-size:x-small; padding-left: 27%; width:50%;"><br>This program was conceived by Callum Beaney and worked on with Steve Beville & Jim Miles.<br>
                 
         </div>
     </div>
