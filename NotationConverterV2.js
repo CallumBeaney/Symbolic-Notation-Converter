@@ -102,7 +102,7 @@ var painted;
 
 function startup(){
     document.getElementById("raw").innerHTML='all n in Evens. exists p, q in Primes. n equals p add q . ';
-    document.getElementById("out").innerHTML='∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . ';
+    document.getElementById("out").innerHTML='∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q . ';
 }
 
 
