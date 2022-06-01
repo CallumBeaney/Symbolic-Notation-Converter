@@ -13,7 +13,7 @@ const shorthandLookupTable = [
     {Shorthand: '≤', UserInput: 'loe'},
     {Shorthand: '≤', UserInput: '<='},
     {Shorthand: '%', UserInput: 'mod'},
-    {Shorthand: 'MOD', UserInput: 'mod2'},
+    {Shorthand: 'MOD', UserInput: 'modd'},
 
 
     // Symbolic Notation
@@ -30,8 +30,8 @@ const shorthandLookupTable = [
     {Shorthand: '⇒', UserInput: 'implies'},
     {Shorthand: '≡', UserInput: 'iff'},
     {Shorthand: '≡', UserInput: 'ioi'},
-    {Shorthand: '⟺', UserInput: 'iff2'},
-    {Shorthand: '⟺', UserInput: 'ioi2'},
+    {Shorthand: '⟺', UserInput: 'ifff'},
+    {Shorthand: '⟺', UserInput: 'ioif'},
     {Shorthand: '∉', UserInput: '!in'},
     {Shorthand: '∉', UserInput: 'nin'},
     {Shorthand: '∉', UserInput: 'notin'},
@@ -93,10 +93,6 @@ const shorthandLookupTable = [
     // ∫ ∬ ∮ ≈ ∑ √ ∏ ∞ ± `
 ]
 
-
-
-
-
 var raw;
 var rawword = [];
 var rawwordlower = [];
@@ -104,13 +100,37 @@ var rawwordlower = [];
 var paintedword = [];
 var painted;
 
-// document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . '
-// document.getElementById('in').value='∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . '
-
 function startup(){
-    var startup = '∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . ';
-    document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . ';
-    document.getElementById("out").innerHTML=startup;
+    document.getElementById("raw").innerHTML='all n in Evens. exists p, q in Primes. n equals p add q . ';
+    document.getElementById("out").innerHTML='∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . ';
+}
+
+
+function specialcases()
+{
+    for (n = 0; n < paintedword.length; n++)
+    {
+        var k = n - 1;
+
+        if (paintedword[n] == " " 
+        &&  paintedword[k] == "¬" 
+        ||  paintedword[k] == "∀"
+        ||  paintedword[k] == ","
+        ||  paintedword[k] == "∃"
+        ||  paintedword[k] == "∄") 
+        {
+            paintedword[k] += paintedword[n]; 
+            paintedword.splice(n, 1);        
+        }
+
+        if (paintedword[k] == " "
+        &&  paintedword[n] == ",")
+        {
+            paintedword[n] += paintedword[k]; 
+            paintedword.splice(k, 1);   
+        }
+    }
+
 }
 
 function submitTextEntry() {
@@ -119,7 +139,7 @@ function submitTextEntry() {
 
     rawword = raw.split(" ");
     rawwordlower = raw.toLowerCase().split(" ");
-    
+
     paintedword = [];
 
     for (i = 0; i < rawword.length; i++) 
@@ -135,12 +155,12 @@ function submitTextEntry() {
         }
     }
 
-    painted=paintedword.join(" "); 
-    
+    specialcases();
+
+    painted = paintedword.join(" "); 
+
     document.getElementById("out").innerHTML=painted;
-
-    // setTimeout(submitTextEntry, 100);
-
 }
 
+startup();
 submitTextEntry();
