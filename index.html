@@ -10,23 +10,27 @@
          
      </head>
      
-<body onload="document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . '" >
+<body onload="startup()" >
 
     <div class="sitelayout">    
         <div class="leftcolumn">
             
             <tr>
-                <td><div class="outputbox" id="out" contenteditable="true" ></div></td>
-                    <br>    <!-- TODO: sort out positioning  -->
+                <td><textarea class="outputbox" id="out" contenteditable="true"></textarea></td>
+                    <br>
 
                 <td><textarea class="inputbox" id="raw" type="text" 
+                    onkeyup="submitTextEntry();"
                     onblur="if(this.value=='')
                             {this.value='all n in Evens. exists p, q in Primes. n equals p add q . ';}" 
                     onfocus="if(this.value=='all n in Evens. exists p, q in Primes. n equals p add q . ')
                             {this.value = ''}"/></textarea></td> 
             </tr> 
+            <br>
             <h2 style="text-align: center">English → Symbolic Notation</h2>            
+
         </div>
+        
 
         <div class="rightcolumn">
             <!-- LIST HERE -->
@@ -93,8 +97,13 @@ Get in touch at (link)
 <!-- ALT TO RESEARCH https://www.youtube.com/watch?v=Zrte7QVPuLY -->
             </div>
 
-            <p style="font-size:x-small; padding-left: 27%; width:50%;"><br>This program was conceived by Callum Beaney and worked on with Steve Beville & Jim Miles.<br>
-                
+            <p style="font-size:x-small; padding-left: 27%; width:50%;"><br>
+                Conceived by 
+                    <a href="https://callumbeaney.github.io/Website/">Callum Beaney</a>
+                    and made in collaboration with
+                    <a href="https://jdgmiles.github.io/jdgm/">James Miles</a> and
+                    <a href="https://github.com/TheBeville">Steve Beville</a>.
+
         </div>
     </div>
 

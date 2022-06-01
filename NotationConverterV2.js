@@ -94,11 +94,7 @@ const shorthandLookupTable = [
 ]
 
 
-// Links to check up on 
-// https://www.youtube.com/watch?v=xogpUfUL5kY
-// https://www.youtube.com/watch?v=XF1_MlZ5l6M
 
-// This method worked on with Steve:
 
 
 var raw;
@@ -108,8 +104,17 @@ var rawwordlower = [];
 var paintedword = [];
 var painted;
 
+// document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . '
+// document.getElementById('in').value='∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . '
+
+function startup(){
+    var startup = '∀ n ∈ Evens. ∃ p, q ∈ Primes. n = p + q . ';
+    document.getElementById('raw').value='all n in Evens. exists p, q in Primes. n equals p add q . ';
+    document.getElementById("out").innerHTML=startup;
+}
+
 function submitTextEntry() {
-                                
+
     raw = document.getElementById("raw").value;
 
     rawword = raw.split(" ");
@@ -134,7 +139,8 @@ function submitTextEntry() {
     
     document.getElementById("out").innerHTML=painted;
 
-    setTimeout(submitTextEntry, 100);
+    // setTimeout(submitTextEntry, 100);
+
 }
 
 submitTextEntry();

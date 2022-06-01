@@ -10,9 +10,19 @@ html, body{
     color: #DDDDDD;
 
 }
-        h2, .brgrey{
+        h2 {
             color: #DDDDDD;
         }
+        a:link{
+            text-decoration:underline;
+            color: chocolate;
+        }
+        a:visited
+        {
+            text-decoration:underline;
+            color: chocolate;
+        }
+
 
 .sitelayout{
     display: grid;
@@ -34,19 +44,19 @@ html, body{
 
 .outputbox {
     width: 60vw; 
-    height: 35vh; 
+    height: 36vh; 
     font-family: 'Latin Modern Roman';
     font-size: 1.5rem;
     color: #DDDDDD;
     background-color: #1e1e1e; 
-    overflow:auto;
+    overflow:auto;    
 }
 
 .inputbox {
     width: 60vw; 
-    height: 35vh; 
+    height: 36vh; 
     font-family: 'Roboto';
-    font-size: 1.3rem; 
+    font-size: 1.4rem; 
     color: #161616; 
     background-color: #DDDDDD; 
     overflow:auto;
@@ -55,7 +65,7 @@ html, body{
 div.scroll {
     background-color: #666666;
     width: 100%;
-    height: 73vh;
+    height: 74vh;
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
