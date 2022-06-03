@@ -92,6 +92,30 @@ const shorthandLookupTable = [
     // TODO:
     // ∫ ∬ ∮ ≈ ∑ √ ∏ ∞ ± `
 ]
+const sup = [
+    {UserInput: '0', Shorthand: '⁰'},
+    {UserInput: '1', Shorthand: '¹'},
+    {UserInput: '2', Shorthand: '²'},
+    {UserInput: '3', Shorthand: '³'},
+    {UserInput: '4', Shorthand: '⁴'},
+    {UserInput: '5', Shorthand: '⁵'},
+    {UserInput: '6', Shorthand: '⁶'},
+    {UserInput: '7', Shorthand: '⁷'},
+    {UserInput: '8', Shorthand: '⁸'},
+    {UserInput: '9', Shorthand: '⁹'},
+]
+const sub = [
+    {UserInput: '0', Shorthand: '₀'},
+    {UserInput: '1', Shorthand: '₁'},
+    {UserInput: '2', Shorthand: '₂'},
+    {UserInput: '3', Shorthand: '₃'},
+    {UserInput: '4', Shorthand: '₄'},
+    {UserInput: '5', Shorthand: '₅'},
+    {UserInput: '6', Shorthand: '₆'},
+    {UserInput: '7', Shorthand: '₇'},
+    {UserInput: '8', Shorthand: '₈'},
+    {UserInput: '9', Shorthand: '₉'},
+]
 
 var raw;
 var rawword = [];
@@ -100,9 +124,11 @@ var rawwordlower = [];
 var paintedword = [];
 var painted;
 
+var changed = 0;
+
 function startup(){
-    document.getElementById("raw").innerHTML='all n in Evens. exists p, q in Primes. n equals p add q . ';
-    document.getElementById("out").innerHTML='∀n ∈ Evens. ∃p, q ∈ Primes. n = p + q . ';
+    var rawstart = "This converter parses shorthand with whitespace. Reference the dictionary to check usage.\n\nGoldbach: all n in Evens. exists p, q in Primes. n equals p add q .\nDe Morgan: not (P and Q) ioif ( not P) or ( not Q) \nEuler: every a, b, c, d in ZZ sup + .  a sup 4 + b sup 4 plus c sup 4 dne d sup 4";
+    document.getElementById("raw").innerHTML = rawstart;
 }
 
 
@@ -113,8 +139,9 @@ function specialcases()
         var k = n - 1;
 
         if (paintedword[n] == " " 
-        &&  paintedword[k] == "¬" 
-        ||  paintedword[k] == "∀"
+        &&  paintedword[n] == "////" // TODO: find out why this specific post && condition fails every time
+        ||  paintedword[k] == "∀" 
+        ||  paintedword[k] == "¬"
         ||  paintedword[k] == ","
         ||  paintedword[k] == "∃"
         ||  paintedword[k] == "∄") 
@@ -129,6 +156,39 @@ function specialcases()
             paintedword[n] += paintedword[k]; 
             paintedword.splice(k, 1);   
         }
+        
+        if (paintedword[k] == "sub"
+        &&  !isNaN(paintedword[n]) )
+        {
+            var pass = paintedword[n];
+            paintedword[n] = sub[pass].Shorthand; 
+            paintedword[k - 1] += paintedword[n];
+            paintedword.splice(k, 2);   
+        }
+
+        if (paintedword[k] == "sup"
+        &&  !isNaN(paintedword[n]) )
+        {
+            var pass = paintedword[n];
+            paintedword[n] = sup[pass].Shorthand; 
+            paintedword[k - 1] += paintedword[n];
+            paintedword.splice(k, 2);   
+        }
+        else if (paintedword[k] == "sup" && paintedword[n] == "+") {
+            paintedword[k - 1] += "⁺";
+            paintedword.splice(k, 2); 
+        }
+        else if (paintedword[k] == "sup" && paintedword[n] == "-") {
+            paintedword[k - 1] += "⁻";
+            paintedword.splice(k, 2); 
+        }
+
+        // TODO: fix
+        // if (paintedword[n] == "." && paintedword[k] == " ")
+        // {
+        //     paintedword[k - 1] += paintedword[n]; 
+        //     paintedword.splice(k, 2); 
+        // }
     }
 
 }
@@ -142,6 +202,8 @@ function submitTextEntry() {
 
     paintedword = [];
 
+    changed = 0;
+
     for (i = 0; i < rawword.length; i++) 
     {
         paintedword[i] = rawword[i];
@@ -151,6 +213,7 @@ function submitTextEntry() {
             if (shorthandLookupTable[n].UserInput == rawwordlower[i])
             {
                 paintedword[i] = shorthandLookupTable[n].Shorthand;
+                changed = 1;
             }
         }
     }
