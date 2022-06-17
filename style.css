@@ -23,31 +23,44 @@ html, body{
 
 
 .sitelayout{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     }
         .leftcolumn{
             padding-top: 5vh;
             padding-bottom: 5vh;
             padding-left: 5vh;
             text-align: center;
+
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+
         }
         .rightcolumn{
             text-align: left;
             text-justify: auto;
-            padding-top: 5vh;
-            width: 85%;
+            padding: 6vh;
+            width: 65%;
+
+            margin: auto;
+            display: flex;
+            flex-direction: column;
         }
 
 
 .outputbox {
-    width: 60vw; 
+    width: 61vw; 
     height: 39vh; 
     font-family: 'Latin Modern Roman';
     font-size: 1.5rem;
+    text-align: left;
     color: #DDDDDD;
     background-color: #1e1e1e; 
     overflow:auto;    
+    white-space: pre-wrap;
+
 }
 
 .inputbox {
@@ -58,6 +71,10 @@ html, body{
     color: #161616; 
     background-color: #DDDDDD; 
     overflow:auto;
+
+    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 div.scroll {
@@ -85,6 +102,8 @@ pre {
 
     font-size:larger;
 }
+
+/* todo: fix up narrow formatting */
 
 @media(max-width:780px){
     .sitelayout{
