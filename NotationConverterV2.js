@@ -1,3 +1,10 @@
+// TODO: Look into splitting files for final version
+// TODO: flex layout CSS for mobile view & font sizing
+// TODO: s sup 4 times A sup 2 · kg sup -1 · m sup -2
+//       1 F = 1 s4 x A2 / m2 x kg (f = farad)
+// TODO: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea?fbclid=IwAR1-XJKAIGhREYyyq-iFVpYvX4C3W3hkPGoTbMXbmh_ktHWkN21W5tYjjDU
+
+
 const shorthandLookupTable = [
     // Generic Operators
     {Shorthand: '=', UserInput: 'equals'},
@@ -107,81 +114,70 @@ const shorthandLookupTable = [
     {Shorthand: 'π', UserInput: 'pi'},
 ]
 
-const unicodemap = [
-    {UserInput: '0',  SupScr: '⁰', SubScr: '₀'},
-    {UserInput: '1',  SupScr: '¹', SubScr: '₁'},
-    {UserInput: '2',  SupScr: '²', SubScr: '₂'},
-    {UserInput: '3',  SupScr: '³', SubScr: '₃'},
-    {UserInput: '4',  SupScr: '⁴', SubScr: '₄'},
-    {UserInput: '5',  SupScr: '⁵', SubScr: '₅'},
-    {UserInput: '6',  SupScr: '⁶', SubScr: '₆'},
-    {UserInput: '7',  SupScr: '⁷', SubScr: '₇'},
-    {UserInput: '8',  SupScr: '⁸', SubScr: '₈'},
-    {UserInput: '9',  SupScr: '⁹', SubScr: '₉'},
-    {UserInput: '+',  SupScr: '⁺', SubScr: '⁺'},
-    {UserInput: '-',  SupScr: '⁻', SubScr: '⁻'},
-    {UserInput: 'a',  SupScr: 'ᵃ', SubScr: 'ₐ'},
-    {UserInput: 'b',  SupScr: 'ᵇ', SubScr: '?'},
-    {UserInput: 'c',  SupScr: 'ᶜ', SubScr: '?'},
-    {UserInput: 'd',  SupScr: 'ᵈ', SubScr: '?'},
-    {UserInput: 'e',  SupScr: 'ᵉ', SubScr: 'ₑ'},
-    {UserInput: 'f',  SupScr: 'ᶠ', SubScr: '?'},
-    {UserInput: 'g',  SupScr: 'ᵍ', SubScr: '?'},
-    {UserInput: 'h',  SupScr: 'ʰ', SubScr: 'ₕ'},
-    {UserInput: 'i',  SupScr: 'ⁱ', SubScr: 'ᵢ'},
-    {UserInput: 'j',  SupScr: 'ʲ', SubScr: 'ⱼ'},
-    {UserInput: 'k',  SupScr: 'ᵏ', SubScr: 'ₖ'},
-    {UserInput: 'l',  SupScr: 'ˡ', SubScr: 'ₗ'},
-    {UserInput: 'm',  SupScr: 'ᵐ', SubScr: 'ₘ'},
-    {UserInput: 'n',  SupScr: 'ⁿ', SubScr: 'ₙ'},
-    {UserInput: 'o',  SupScr: 'ᵒ', SubScr: 'ₒ'},
-    {UserInput: 'p',  SupScr: 'ᵖ', SubScr: 'ₚ'},
-    {UserInput: 'r',  SupScr: 'ʳ', SubScr: 'ᵣ'},
-    {UserInput: 's',  SupScr: 'ˢ', SubScr: 'ₛ'},
-    {UserInput: 't',  SupScr: 'ᵗ', SubScr: 'ₜ'},
-    {UserInput: 'u',  SupScr: 'ᵘ', SubScr: 'ᵤ'},
-    {UserInput: 'v',  SupScr: 'ᵛ', SubScr: 'ᵥ'},
-    {UserInput: 'w',  SupScr: 'ʷ', SubScr: '?'},
-    {UserInput: 'x',  SupScr: 'ˣ', SubScr: 'ₓ'},
-    {UserInput: 'y',  SupScr: 'ʸ', SubScr: '?'},
-    {UserInput: 'z',  SupScr: 'ᶻ', SubScr: '?'},
- ]
+// const unicodemap = [
+//     {UserInput: '0',  SupScr: '⁰', SubScr: '₀'},
+//     {UserInput: '1',  SupScr: '¹', SubScr: '₁'},
+//     {UserInput: '2',  SupScr: '²', SubScr: '₂'},
+//     {UserInput: '3',  SupScr: '³', SubScr: '₃'},
+//     {UserInput: '4',  SupScr: '⁴', SubScr: '₄'},
+//     {UserInput: '5',  SupScr: '⁵', SubScr: '₅'},
+//     {UserInput: '6',  SupScr: '⁶', SubScr: '₆'},
+//     {UserInput: '7',  SupScr: '⁷', SubScr: '₇'},
+//     {UserInput: '8',  SupScr: '⁸', SubScr: '₈'},
+//     {UserInput: '9',  SupScr: '⁹', SubScr: '₉'},
+//     {UserInput: '+',  SupScr: '⁺', SubScr: '⁺'},
+//     {UserInput: '-',  SupScr: '⁻', SubScr: '⁻'},
+//     {UserInput: 'a',  SupScr: 'ᵃ', SubScr: 'ₐ'},
+//     {UserInput: 'b',  SupScr: 'ᵇ', SubScr: '?'},
+//     {UserInput: 'c',  SupScr: 'ᶜ', SubScr: '?'},
+//     {UserInput: 'd',  SupScr: 'ᵈ', SubScr: '?'},
+//     {UserInput: 'e',  SupScr: 'ᵉ', SubScr: 'ₑ'},
+//     {UserInput: 'f',  SupScr: 'ᶠ', SubScr: '?'},
+//     {UserInput: 'g',  SupScr: 'ᵍ', SubScr: '?'},
+//     {UserInput: 'h',  SupScr: 'ʰ', SubScr: 'ₕ'},
+//     {UserInput: 'i',  SupScr: 'ⁱ', SubScr: 'ᵢ'},
+//     {UserInput: 'j',  SupScr: 'ʲ', SubScr: 'ⱼ'},
+//     {UserInput: 'k',  SupScr: 'ᵏ', SubScr: 'ₖ'},
+//     {UserInput: 'l',  SupScr: 'ˡ', SubScr: 'ₗ'},
+//     {UserInput: 'm',  SupScr: 'ᵐ', SubScr: 'ₘ'},
+//     {UserInput: 'n',  SupScr: 'ⁿ', SubScr: 'ₙ'},
+//     {UserInput: 'o',  SupScr: 'ᵒ', SubScr: 'ₒ'},
+//     {UserInput: 'p',  SupScr: 'ᵖ', SubScr: 'ₚ'},
+//     {UserInput: 'r',  SupScr: 'ʳ', SubScr: 'ᵣ'},
+//     {UserInput: 's',  SupScr: 'ˢ', SubScr: 'ₛ'},
+//     {UserInput: 't',  SupScr: 'ᵗ', SubScr: 'ₜ'},
+//     {UserInput: 'u',  SupScr: 'ᵘ', SubScr: 'ᵤ'},
+//     {UserInput: 'v',  SupScr: 'ᵛ', SubScr: 'ᵥ'},
+//     {UserInput: 'w',  SupScr: 'ʷ', SubScr: '?'},
+//     {UserInput: 'x',  SupScr: 'ˣ', SubScr: 'ₓ'},
+//     {UserInput: 'y',  SupScr: 'ʸ', SubScr: '?'},
+//     {UserInput: 'z',  SupScr: 'ᶻ', SubScr: '?'},
+//  ]
 
-// DEPRECATED VERSION FOR 1-NUMBER SUPERSCRIPT 
-//
-// const sup = [
-//     {UserInput: '0', Shorthand: '⁰'},
-//     {UserInput: '1', Shorthand: '¹'},
-//     {UserInput: '2', Shorthand: '²'},
-//     {UserInput: '3', Shorthand: '³'},
-//     {UserInput: '4', Shorthand: '⁴'},
-//     {UserInput: '5', Shorthand: '⁵'},
-//     {UserInput: '6', Shorthand: '⁶'},
-//     {UserInput: '7', Shorthand: '⁷'},
-//     {UserInput: '8', Shorthand: '⁸'},
-//     {UserInput: '9', Shorthand: '⁹'},
-// ]
+const sup = [
+    {UserInput: '0', Shorthand: '⁰'},
+    {UserInput: '1', Shorthand: '¹'},
+    {UserInput: '2', Shorthand: '²'},
+    {UserInput: '3', Shorthand: '³'},
+    {UserInput: '4', Shorthand: '⁴'},
+    {UserInput: '5', Shorthand: '⁵'},
+    {UserInput: '6', Shorthand: '⁶'},
+    {UserInput: '7', Shorthand: '⁷'},
+    {UserInput: '8', Shorthand: '⁸'},
+    {UserInput: '9', Shorthand: '⁹'},
+] // DEPRECATED VERSION FOR 1-NUMBER SUPERSCRIPT 
 
-var raw;
-var rawword = [];
-var rawwordlower = [];
 
-var paintedword = [];
-var painted;
 
 
 function startup(){
-    var rawstart = "This converter parses shorthand with whitespace. Reference the dictionary to check usage.\n\nGoldbach: all n in Evens. exists p, q in Primes. n equals p add q .\nDe Morgan: not (P and Q) ioif ( not P) or ( not Q) \nEuler: every a, b, c, d in ZZ sup + .  a sup 4 + b sup 4 plus c sup 4 dne d sup 4";
+    let rawstart = "This converter parses shorthand with whitespace. Reference the dictionary to check usage.\n\nGoldbach: all n in Evens. exists p, q in Primes. n equals p add q .\nDe Morgan: not (P and Q) ioif ( not P) or ( not Q) \nEuler: every a, b, c, d in ZZ sup + .  a sup 4 + b sup 4 plus c sup 4 dne d sup 4";    
     document.getElementById("raw").innerHTML = rawstart;
+    submitTextEntry();
 }
 
-// TODO: s sup 4 times A sup 2 · kg sup -1 · m sup -2
-// 1 F = 1 s4 x A2 / m2 x kg (f = farad)
 
-// TODO: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea?fbclid=IwAR1-XJKAIGhREYyyq-iFVpYvX4C3W3hkPGoTbMXbmh_ktHWkN21W5tYjjDU
-
-
-function specialcases()
+function specialcases(paintedword)
 {
     for (n = 0; n < paintedword.length; n++)
     {
@@ -199,89 +195,102 @@ function specialcases()
             paintedword.splice(n, 1);        
         }
           
-            // // OLD VERSION TO BE DEPRECATED -- WORKED WELL WITH DEPRECATED "sup" CONST ABOVE
-            // // e.g.  a sup 4 --> a⁴      BUT     a sup 44a --> (program breaks)
-            //
-            // if (paintedword[k] == "sup"
-            // &&  !isNaN(paintedword[n]) )
-            // {
-            //     var pass = paintedword[n];
-            //     paintedword[n] = sup[pass].Shorthand; 
-            //     paintedword[k - 1] += paintedword[n];
-            //     paintedword.splice(k, 2);   
-            // }
-            // else if (paintedword[k] == "sup" && paintedword[n] == "+") {
-            //     paintedword[k - 1] += "⁺";
-            //     paintedword.splice(k, 2); 
-            // }
-            // else if (paintedword[k] == "sup" && paintedword[n] == "-") {
-            //     paintedword[k - 1] += "⁻";
-            //     paintedword.splice(k, 2); 
-            // }
+            // OLD VERSION of superscript  TO BE DEPRECATED -- WORKED WELL WITH DEPRECATED "sup" CONST ABOVE
+            // e.g.  a sup 4 --> a⁴      BUT     a sup 44a --> (program breaks)
+            
+            if (paintedword[k] == "sup"
+            &&  !isNaN(paintedword[n]) )
+            {
+                var pass = paintedword[n];
+                paintedword[n] = sup[pass].Shorthand; 
+                paintedword[k - 1] += paintedword[n];
+                paintedword.splice(k, 2);   
+            }
+            else if (paintedword[k] == "sup" && paintedword[n] == "+") {
+                paintedword[k - 1] += "⁺";
+                paintedword.splice(k, 2); 
+            }
+            else if (paintedword[k] == "sup" && paintedword[n] == "-") {
+                paintedword[k - 1] += "⁻";
+                paintedword.splice(k, 2); 
+            }
         
-
- // HERE
-        // NEW VERSION TRYING TO MAKE MULTI-CHARACTER SUPERSCRIPTS DOABLE, BUT BUGGY
+        // NEW VERSION of superscript TRYING TO MAKE MULTI-CHARACTER SUPERSCRIPTS DOABLE, BUT BUGGY
         // What I need: e.g.    a sup 44a --> a⁴⁴ᵃ
 
-        if (paintedword[k] === "sup")
-        {
-            let pass = paintedword[n].toString();
-            let passarray = Array.from(pass);
-            for (w = 0; w <= passarray.length; w++)
-            {
-                for (q = 0; q <= unicodemap.length; q++)
-                {
-                    if (passarray[w] == unicodemap[q].UserInput)
-                    {
-                        passarray[w] = unicodemap[q].SupScr;
-                    }
-                }
-            }
-            paintedword[n] = passarray;
-            paintedword[k - 1] += paintedword[n];
-        }
-
+        // if (paintedword[k] === "sup")
+        // {
+        //     let pass = paintedword[n].toString();
+        //     let passarray = Array.from(pass);
+        //     for (w = 0; w <= passarray.length; w++)
+        //     {
+        //         for (q = 0; q <= unicodemap.length; q++)
+        //         {
+        //             if (passarray[w] == unicodemap[q].UserInput)
+        //             {
+        //                 passarray[w] = unicodemap[q].SupScr;
+        //             }
+        //         }
+        //     }
+        //     paintedword[n] = passarray;
+        //     paintedword[k - 1] += paintedword[n];
+        // }
 
     }
     
 }
 
-
-
 function submitTextEntry() {
 
-    raw = document.getElementById("raw").value;
+    let paintedword = [];
+    const raw = document.getElementById("raw").value;
+        
+    
+    // TODO: fix line break checker
+    //
+    // for (i = rawword.length; i > 0; i--)
+    // {        
+    //     if (rawword[i].includes("\n"))
+    //     {
+    //         let tosplit = rawword[i].toString();
+    //         //     REGEX:   raw.split((/\s+/); 
+    //         // syntaxes/code snippets below:
+    //         // let pass = tosplit.split((/\s+/));
+    //         // let pass = tosplit.split("\n");
+    //         // rawword[i] = pass[0].toString() + "i";      
+    //         // rawword.splice(i + 1, 0, pass[1].toString() + "p");   
+    //     }
+    // }   
 
-    
-    rawword = raw.split(" ");
-    rawwordlower = raw.toLowerCase().split(" ");
-    
-    paintedword = [];
-    
+    // TODO: reimplement case flexibility. **
+    //
+    // const rawwordlower = raw.toLowerCase().split(" ");
 
-    
+    const rawword = raw.split(" "); 
+
     for (i = 0; i < rawword.length; i++) 
     {
         paintedword[i] = rawword[i];
 
         for (n = 0; n < shorthandLookupTable.length; n++)
         {
-            if (shorthandLookupTable[n].UserInput == rawwordlower[i])
+            if (shorthandLookupTable[n].UserInput == rawword[i])           // ** if (shorthandLookupTable[n].UserInput == rawwordlower[i])
+
             {
                 paintedword[i] = shorthandLookupTable[n].Shorthand;
             }
-            
         }
+
     }
 
-    specialcases();
+    specialcases(paintedword);
 
-    painted = paintedword.join(" "); 
+ 
+
+    let painted = paintedword.join(" "); 
 
     document.getElementById("out").innerHTML= "<p>" + painted + "</p>";
 }
 
 startup();
-submitTextEntry();
 
