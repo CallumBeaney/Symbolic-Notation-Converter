@@ -4,13 +4,16 @@
 html, body{
     margin: 0;
     padding: 0;
-    /*height:100%;*/
+    /* height:100%; */
     font-family: 'Roboto', sans-serif;
     background-color: #282828; /*eigengrau 16161D*/
     color: #DDDDDD;
 
 }
-        h3 {color: #DDDDDD;}
+        h3 {
+            color: #CCCCCC;
+            /* margin:-5px 0 -5px 0; */
+        }
         a:link{
             text-decoration:underline;
             color: chocolate;
@@ -21,119 +24,112 @@ html, body{
             color: chocolate;
         }
 
-
-.sitelayout{
+                                    /* CORE SITE LAYOUT */
+.sitelayout {
     display: flex;
     flex-direction: row;
     align-items: center;
-    }
-        .leftcolumn{
-            padding-top: 5vh;
-            padding-bottom: 5vh;
-            padding-left: 5vh;
-            text-align: center;
+}
+    .leftcolumn {
+        padding-top: 5vh;
+        /* padding-bottom: 1vh; */
+        padding-left: 5vh;
+        text-align: center;
 
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-
-        }
-        .rightcolumn{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }                                           /* INPUT/OUTPUT BOXES */
+        .syncscroll.outputbox {
+            width: 61vw; 
+            height: 43vh; 
+            font-family: 'Latin Modern Roman';
+            font-size: 1.3rem; /* moto 1.5 */
             text-align: left;
-            text-justify: auto;
-            padding: 6vh;
-            width: 65%;
+            color: #DDDDDD;
+            background-color: #1e1e1e; 
+            overflow:auto;    
+            white-space: pre-wrap;
+            box-sizing: border-box;
+            padding: 1%;
+        }
+            .syncscroll.outputbox p{
+                margin:-0.5% 0 -0.5% 0;
+            }
+
+        .syncscroll.inputbox {
+            width: 60vw; 
+            height: 43vh; 
+            font-family: 'Roboto';
+            font-size: 1.3rem; 
+            color: #161616; 
+            background-color: #DDDDDD; 
+            overflow:auto;
 
             margin: auto;
+            align-items: center;
+            justify-content: center;    
+        }
+
+    .rightcolumn {
+        text-align: left;
+        text-justify: auto;
+        padding-top: 4.5vh;
+        padding-left: 1.3vw;
+        padding-right: 3.1vw;
+        width: 65%;
+
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+                                            /* DICTIONARY */
+        div.scroll {
+            width: 100%;
+            height: 89vh;
+            overflow-x: hidden;
+            overflow-y: auto;
             display: flex;
-            flex-direction: column;
+            /* justify-content: center; */
+            background-color: #333333;
+            border: 1px solid;
+            color: #9A9A9A;  
         }
 
 
-.outputbox {
-    width: 61vw; 
-    height: 39vh; 
-    font-family: 'Latin Modern Roman';
-    font-size: 1.5rem;
-    text-align: left;
-    color: #DDDDDD;
-    background-color: #1e1e1e; 
-    overflow:auto;    
-    white-space: pre-wrap;
 
-}
 
-.inputbox {
-    width: 60vw; 
-    height: 39vh; 
-    font-family: 'Roboto';
-    font-size: 1.3rem; 
-    color: #161616; 
-    background-color: #DDDDDD; 
-    overflow:auto;
 
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-}
 
-div.scroll {
-    background-color: #666666;
-    width: 100%;
-    height: 80vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-  
-    /* CSS just to show the bounds */
-    border: 2px solid;
-    background-color: #333333;
-    color: #999999;
-  
-  }
-
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-
-    font-size:larger;
-}
 
 /* todo: fix up narrow formatting */
 
-@media(max-width:780px){
+@media(max-width:640px){
     .sitelayout{
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
     }
     .leftcolumn{
         padding:0;
-        padding-top: 5rem;
+        padding-top: 2vh;
     }
+    .syncscroll.outputbox {
+        width: 90vw; 
+        height: 45vh; 
+        font-size: 1.1rem;
+    }
+    .syncscroll.inputbox {
+        width: 89vw; 
+        height: 40vh; 
+        font-size: 1.1rem;
+    }
+       
     .rightcolumn{
-        padding: 0;
-        padding-left:1.5rem;
-        padding-top:2rem;
-    }
-    .innergridcont{
-        display: grid;
-        grid-template-columns: auto;
-        background-color: #2196F3;
-        padding: 0px;
-      }
-
-    .outputbox {
-        width: 90vw; 
-        height: 35vh; 
-
-    }
-    
-    .inputbox {
-        width: 90vw; 
-        height: 35vh; 
+        width: 80%;
+        padding-top: 5vh;
+        padding-left: 1vw;
+        padding-right: 1.5vw;
+        /* align-items: center; */
     }
 
 }
