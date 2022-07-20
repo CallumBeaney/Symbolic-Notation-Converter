@@ -1,26 +1,27 @@
 const shorthandLookupTable = [
     // Generic Operators
-    {Shorthand: '=', UserInput: 'equals'},
     {Shorthand: '=', UserInput: 'equal'},
+    {Shorthand: '=', UserInput: 'equals'},
     {Shorthand: '+', UserInput: 'plus'},
     {Shorthand: '+', UserInput: 'add'},
     {Shorthand: '-', UserInput: 'minus'},
     {Shorthand: '×', UserInput: 'times'},
     {Shorthand: '×', UserInput: '*'},
     {Shorthand: '/', UserInput: 'div'},
-    {Shorthand: '≥', UserInput: '>='},
     {Shorthand: '≥', UserInput: 'goe'},
+    {Shorthand: '≥', UserInput: '>='},
     {Shorthand: '≤', UserInput: 'loe'},
     {Shorthand: '≤', UserInput: '<='},
     {Shorthand: '%', UserInput: 'mod'},
-    {Shorthand: 'MOD', UserInput: 'modd'},
+    {Shorthand: 'MOD', UserInput: 'modd'},    
 
     // Symbolic Notation
+    // https://www.rapidtables.com/math/symbols/Logic_Symbols.html
     {Shorthand: '∈', UserInput: 'in'},
     {Shorthand: '∧', UserInput: 'and'},
     {Shorthand: '∨', UserInput: 'or'},
-    {Shorthand: '∃', UserInput: 'exists'},
     {Shorthand: '∃', UserInput: 'exist'},
+    {Shorthand: '∃', UserInput: 'exists'},
     {Shorthand: '¬', UserInput: 'not'},
     {Shorthand: '¬', UserInput: '~'},
     {Shorthand: '∀', UserInput: 'all'},
@@ -35,18 +36,21 @@ const shorthandLookupTable = [
     {Shorthand: '∉', UserInput: 'nin'},
     {Shorthand: '∉', UserInput: 'notin'},
     {Shorthand: '∄', UserInput: '!exist'},
-    {Shorthand: '∄', UserInput: 'notexist'},
-    {Shorthand: '∄', UserInput: 'nexist'},
     {Shorthand: '∄', UserInput: 'nex'},
-    {Shorthand: '≠', UserInput: '=/='},
-    {Shorthand: '≠', UserInput: 'dne'},
-    {Shorthand: '≠', UserInput: 'notequals'},
+    {Shorthand: '∄', UserInput: 'notexist'},
     {Shorthand: '≠', UserInput: '!='},
+    {Shorthand: '≠', UserInput: 'dne'},
+    {Shorthand: '≠', UserInput: '=/='},
+    {Shorthand: '≠', UserInput: 'notequals'},
     {Shorthand: '∴', UserInput: 'therefore'},
     {Shorthand: '∴', UserInput: 'andso'},
     {Shorthand: '∵', UserInput: 'because'},
     {Shorthand: '∵', UserInput: 'bc'},
     {Shorthand: '∵', UserInput: 'since'},
+    {Shorthand: '⊼', UserInput: 'nand'},
+    {Shorthand: '⊽', UserInput: 'nor'},
+    {Shorthand: '⊻', UserInput: 'xor'},
+    {Shorthand: '⊕', UserInput: 'xorr'},
 
 
     // Set Notation
@@ -54,26 +58,27 @@ const shorthandLookupTable = [
     {Shorthand: '|', UserInput: 'suchthat'},
     {Shorthand: '|', UserInput: 'st'},
     {Shorthand: '∪', UserInput: 'union'},
-    {Shorthand: '⊆', UserInput: 'subsetof'},
     {Shorthand: '⊆', UserInput: 'subset'},
-    {Shorthand: '∩', UserInput: 'intersection'},
+    {Shorthand: '⊆', UserInput: 'subsetof'},
     {Shorthand: '∩', UserInput: 'intsec'},
-    {Shorthand: '⊂', UserInput: 'propersubset'},
+    {Shorthand: '∩', UserInput: 'intersection'},
     {Shorthand: '⊂', UserInput: 'propsub'},
-    {Shorthand: '⊇', UserInput: 'superset'},
+    {Shorthand: '⊂', UserInput: 'propersubset'},
     {Shorthand: '⊇', UserInput: 'supset'},
-    {Shorthand: '⊃', UserInput: 'propersuperset'},
+    {Shorthand: '⊇', UserInput: 'superset'},
     {Shorthand: '⊃', UserInput: 'propsupset'},
-    {Shorthand: '⊄', UserInput: 'notsub'},
+    {Shorthand: '⊃', UserInput: 'propersuperset'},
     {Shorthand: '⊄', UserInput: '!subset'},
-    {Shorthand: '⊅', UserInput: 'notsup'},
+    {Shorthand: '⊄', UserInput: 'notsub'},
     {Shorthand: '⊅', UserInput: '!superset'},
-
-    
-    // Double-struck
-    // https://en.wikipedia.org/wiki/Blackboard_bold
-    {Shorthand: 'Ø', UserInput: 'emptyset'},
+    {Shorthand: '⊅', UserInput: 'notsup'},
     {Shorthand: 'Ø', UserInput: '0set'},
+    {Shorthand: 'Ø', UserInput: 'emptyset'},
+    {Shorthand: '\\', UserInput: 'diff'},
+    {Shorthand: '\\', UserInput: 'difference'},
+
+    // Common Double-struck
+    // https://en.wikipedia.org/wiki/Blackboard_bold
     {Shorthand: 'ℕ', UserInput: 'nn'},
     {Shorthand: 'ℕ', UserInput: 'natnum'},
     {Shorthand: 'ℕ', UserInput: 'natset'},
@@ -87,19 +92,28 @@ const shorthandLookupTable = [
     {Shorthand: 'ℂ', UserInput: 'compset'},
     {Shorthand: '𝔻', UserInput: 'dd'},
     {Shorthand: '𝔻', UserInput: 'domain'},
-    {Shorthand: 'ℙ', UserInput: 'pp'},
 
-    // Logical operators
-    {Shorthand: '⊼', UserInput: 'nand'},
-    {Shorthand: '⊽', UserInput: 'nor'},
-    {Shorthand: '⊻', UserInput: 'xor'},
-    {Shorthand: '⊕', UserInput: 'xorr'},
-
-    // Greek Characters
+    // Misc
+    {Shorthand: '√', UserInput: 'sqr'},
+    {Shorthand: '√', UserInput: 'root'},
+    {Shorthand: '±', UserInput: 'stddev'},
+    {Shorthand: '∞', UserInput: 'inf'},
     {Shorthand: 'Ω', UserInput: 'ohm'},
-    {Shorthand: '睾', UserInput: 'ligma'},
-    
-    
+    {Shorthand: 'ℵ', UserInput: 'aleph'},
+    {Shorthand: '∫', UserInput: 'integral'},
+    {Shorthand: '∫', UserInput: 'igl'},
+    {Shorthand: '𝑓', UserInput: 'function'},
+    {Shorthand: '𝑓', UserInput: 'fn'},
+    {Shorthand: 'ƒ', UserInput: 'functionn'},
+    {Shorthand: 'ƒ', UserInput: 'fnn'},
+    {Shorthand: '𝑥', UserInput: 'variable'},
+    {Shorthand: '𝑥', UserInput: 'var'},
+    {Shorthand: '𝑥', UserInput: 'xvar'},
+    {Shorthand: 'or', UserInput: 'orr'},
+    {Shorthand: 'and', UserInput: 'andd'},
+
+    // Greek Characters    
+    // https://mathvault.ca/hub/higher-math/math-symbols/greek-hebrew-latin-symbols/
     {Shorthand: 'α', UserInput: 'alpha'},
     {Shorthand: 'β', UserInput: 'beta'},
     {Shorthand: 'γ', UserInput: 'gamma'},
@@ -123,22 +137,40 @@ const shorthandLookupTable = [
     {Shorthand: 'χ', UserInput: 'chi'},
     {Shorthand: 'ψ', UserInput: 'psi'},
     {Shorthand: 'ω', UserInput: 'omega'},
-    
+    // Greek Uppercase 
     {Shorthand: 'Γ', UserInput: 'gammaa'},
     {Shorthand: 'Δ', UserInput: 'deltaa'},
     {Shorthand: 'Θ', UserInput: 'thetaa'},
     {Shorthand: 'Λ', UserInput: 'lambdaa'},
     {Shorthand: 'Ξ', UserInput: 'xii'},
     {Shorthand: 'Π', UserInput: 'pii'},
-    {Shorthand: 'Γ', UserInput: 'gammaa'},
     {Shorthand: '∑', UserInput: 'sigmaa'},
     {Shorthand: 'ϒ', UserInput: 'upsilonn'},
     {Shorthand: 'Φ', UserInput: 'phii'},
     {Shorthand: 'Ψ', UserInput: 'psii'},
     {Shorthand: 'Ω', UserInput: 'omegaa'},
 
-    // Misc
-    {Shorthand: '√', UserInput: 'sqr'},
-    {Shorthand: '±', UserInput: 'stddev'},
-    {Shorthand: '∞', UserInput: 'inf'},
+    // Other Double-struck
+    {Shorthand: '𝔸', UserInput: 'aa'},
+    {Shorthand: '𝔹', UserInput: 'bb'},
+    {Shorthand: '𝔼', UserInput: 'ee'},
+    {Shorthand: '𝔽', UserInput: 'ff'},
+    {Shorthand: '𝔾', UserInput: 'gg'},
+    {Shorthand: 'ℍ', UserInput: 'hh'},
+    {Shorthand: '𝕀', UserInput: 'ii'},
+    {Shorthand: '𝕁', UserInput: 'jj'},
+    {Shorthand: '𝕂', UserInput: 'kk'},
+    {Shorthand: '𝕃', UserInput: 'll'},
+    {Shorthand: '𝕄', UserInput: 'mm'},
+    {Shorthand: '𝕆', UserInput: 'oo'},
+    {Shorthand: 'ℙ', UserInput: 'pp'},
+    {Shorthand: '𝕊', UserInput: 'll'},
+    {Shorthand: '𝕋', UserInput: 'tt'},
+    {Shorthand: '𝕌', UserInput: 'uu'},
+    {Shorthand: '𝕍', UserInput: 'vv'},
+    {Shorthand: '𝕎', UserInput: 'ww'},
+    {Shorthand: '𝕏', UserInput: 'xx'},
+    {Shorthand: '𝕐', UserInput: 'yy'},
+
+    {Shorthand: '睾', UserInput: 'ligma'},
 ]

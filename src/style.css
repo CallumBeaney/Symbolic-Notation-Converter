@@ -45,6 +45,7 @@ html, body{
             height: 43vh; 
             font-family: 'Latin Modern Roman';
             font-size: 1.3rem; /* moto 1.5 */
+            /* line-height: 1.4em; */
             text-align: left;
             color: #DDDDDD;
             background-color: #1e1e1e; 
@@ -96,10 +97,44 @@ html, body{
             color: #9A9A9A;  
         }
 
-
-
-
-
+        .tg {
+            border-collapse:collapse;
+            border-spacing:0;
+            margin:0px auto;
+        }
+            .tg td {
+                border-color:transparent;
+                border-style:solid;
+                border-width:0.1px;
+                font-family:Arial, sans-serif;
+                font-size:14px;
+                overflow:hidden;
+                padding:6px 5px;
+                word-break:normal;
+            }
+            .tg .symbol {
+                border-color:#595959;
+                font-family:"Arial", monospace;
+                font-size:1.2rem;
+                text-align:center;
+                vertical-align:middle
+            }
+            .tg .title {
+                border-color:#595959;
+                color: #9A9A9A;
+                font-family:"Arial", monospace;
+                font-size:1.3rem;
+                text-align:center;
+                vertical-align:middle;
+                padding-top: 2.5vh;
+                padding-bottom: 2.5vh;
+            }
+            .tg .code {
+                border-color:#595959;
+                font-size:medium;
+                text-align:left;
+                vertical-align:middle
+            }
 
 
 /* todo: fix up narrow formatting */
