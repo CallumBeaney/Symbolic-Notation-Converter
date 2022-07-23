@@ -10,12 +10,13 @@ Parses a user-input string by the whitespace between characters, converts certai
 |HCO sub 3 sup -|HCO₃⁻|
 | sigma sub x = 2 | σₓ = 2 |
 | P(a <= x <= b) = integral function (x) dx |  P(a ≤ x ≤ b) = ∫ 𝑓(x) dx |
-| P(a loe x loe b) = igl fn (x) dx |  P(a ≤ x ≤ b) = ∫ 𝑓(x) dx |
+| P(a loe x loe b) = int fn (x) dx |  P(a ≤ x ≤ b) = ∫ 𝑓(x) dx |
 
 ## Why?
 When scrolling through mathematics forums, Wikipedia etc., I noticed that people used:
  - LaTeX
  - Keyboard character substitutions
+ - Copying from an ASCII table
  - JPEGS
  - HTML
 

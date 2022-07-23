@@ -3,7 +3,7 @@
 function startup() 
 { 
     /* This function will call itself on startup and process rawStart */
-    const rawStart = "This converter parses shorthand with whitespace. Type into the white box. Copy text from the black box. Check the dictionary for shorthand. Clear the white box & type \"spec pls\" followed by a space to read the specification.\n\nGoldbach: all n in Evens. exists p, q in Primes. n equals p add q .\nDe Morgan: not (P and Q) ioif ( not P) or ( not Q) \nEuler: every a, b, c, d in zz sup + .  a sup 4 + b sup 4 plus c sup 4 dne d sup 4\nAluminium sulfate: Al sub 2 ( SO sub 4 ) sub 3";    
+    const rawStart = "This converter parses shorthand with whitespace. Type into the white box. Copy text from the black box. Check the dictionary for shorthand. Clear the white box & type \"spec pls\" followed by a space to read the specification.\n\nGoldbach: all n in Evens. exists p, q in Primes. n equals p add q .\nDe Morgan: not (P and Q) iff ( not P) or ( not Q) \nEuler: every a, b, c, d in zz sup + .  a sup 4 + b sup 4 plus c sup 4 dne d sup 4\nAluminium sulfate: Al sub 2 ( SO sub 4 ) sub 3";    
     document.getElementById("raw").innerHTML = rawStart;
     submitTextEntry();
 
@@ -12,7 +12,7 @@ function startup()
 
 function examplePrint()
 {
-    document.getElementById("raw").value = "TABLE OF CONTENTS:\n\t1. Syntax\n\t2. Subscript & superscript\n\t3. Set notation\n\t4. Summation notation\n\t5. Greek symbols\n\t6. Colophon\n\n1. SYNTAX\nThis program parses by whitespace, converting shorthand keywords into mathematical notation, using Unicode symbols. Consider all . This means that\n  \t \" all p in n\" successfully converts, but \"all p in n\" does not. \nMost symbols have more than one keyword:\n\n\t natset nn \t\t goe >= \t\t propersubset propsub \n\nNegatives also work with exclamation marks: \n\t dne !=  \t\t subset !subset \t\t exist  !exist\n\n2. SUPERSCRIPT\nSub/superscript functionality discriminates by a-z, 0-9, mathematical operators & parentheses, but /not/ by A-Z.\n\nLook at this formula for DMSP:\n\t(CH sub 3 ) sub 2 S sup + CH sub 2 CH sub 2 COO sup - \n\t(CH sub 3) sub 2S sup +CH sub 2CH sub 2COO sup - \n\nThis converter uses Unicode characters rather than LATEX/html-style formatting, so a small number of letters cannot be used & styling may be inconsistent:\n\tsuper sup script \tsub sub script \n\n3. SET NOTATION\nYou may find that you need to write 'and' and 'or'. If you just type the last letter of the word twice by writing orr or andd it will convert: \n\n \t{ emptyset , 4} !superset { 1, {2, 3}, 4 } \n\tA union B = {x| x in A orr x in B orr x in A and B}\n\tA' = A sup c = {  var st var in uu andd var nin A}\n\n4. SIGMA/PI NOTATION\n\n\t sigmaa (1 <= i < j loe n)  | S sub i intsec S sub j intersection S sub k |. \n\t pii (5 ; i = 1). i = 5!\n\n5. GREEK SYMBOLS\nTo write an uppercase version, just type the last letter of the word twice:\n\n\t 'delta'  converts to\t delta \n\t 'deltaa' converts to\t deltaa \n\nSome characters can be written using Latin capitals, e.g. using a normal capital B to represent the 'beta' function', where no symbol is needed; 'beta' still converts to beta \n\nExamples:\n\n\t B(x, y) = gammaa (x) gammaa (y) / gammaa (x + y).\n\t alpha + 2 beta = 3 gamma , beta = sigmaa \n\t H sub 0 : mu sub 1 = mu sub 2 \n\n\n6. COLOPHON\n\nThis program was written by <a href='https://callumbeaney.github.io/website/'>Callum Beaney</a> out of want for a quick, easy to use notation converter for use on forums etcetera.  The synchronised scrolling feature is imported from Dmitry Prokashev's excellent <a href='https://github.com/asvd/syncscroll'>Syncscroll</a> library. I received kind debugging assistance from Dart grandmaster <a href='https://github.com/alexobviously'>Alex Baker</a>. You can read the source code <a href='https://github.com/CallumBeaney/Symbolic-Notation-Converter'>here</a>.";
+    document.getElementById("raw").value = "TABLE OF CONTENTS:\n\t1. Syntax\n\t2. Subscript & superscript\n\t3. Set notation\n\t4. Summation notation\n\t5. Greek symbols\n\t6. Colophon\n\n1. SYNTAX\nThis program parses by whitespace, converting shorthand keywords into mathematical notation, using Unicode symbols. Consider all . This means that\n  \t \" all p in n\" successfully converts, but \"all p in n\" does not. \nMost symbols have more than one keyword:\n\n\t natset nn \t\t goe >= \t\t propersubset propsub \n\nNegatives also work with exclamation marks: \n\t dne !=  \t\t subset !subset \t\t exist  !exist \n\nAs a rule, variants can be found by just typing the last letter of a keyword again:\n\t int \t\t intt \t\t inttt \n\n\n2. SUPERSCRIPT\nSub/superscript functionality discriminates by a-z, 0-9, mathematical operators & parentheses, but /not/ by A-Z.\n\nLook at this formula for DMSP:\n\t(CH sub 3 ) sub 2 S sup + CH sub 2 CH sub 2 COO sup - \n\t(CH sub 3) sub 2S sup +CH sub 2CH sub 2COO sup - \n\nNote the use of an initial space for sub/superscript that begins a line, where | is the start of a new line:\n\n\t| sup 4 sqr 16 = stddev 2\n\t|sup 4 sqr 16 = stddev 2\n\n\t| sub 5P sub 3 = 5! / (5-3)! = 60\n\nThis converter uses Unicode characters rather than LATEX/html-style formatting, so a small number of letters cannot be used & styling may be inconsistent:\n\tsuper sup script \tsub sub script \n\n\n3. SET NOTATION\nYou may find that you need to write 'and' and 'or'. If you just type the last letter of the word twice by writing orr or andd it will convert: \n\n \t{ emptyset , 4} !superset { 1, {2, 3}, 4 } \n\tA union B = {x| x in A orr x in B orr x in A and B}\n\tA' = A sup c = {  var st var in uu andd var nin A}\n\n\n4. SIGMA/PI NOTATION\n\n\t sigmaa (1 <= i < j loe n)  | S sub i intsec S sub j intersection S sub k |. \n\t pii (5 ; i = 1). i = 5!\n\n\n5. GREEK SYMBOLS\nTo write an uppercase version, just type the last letter of the word twice:\n\n\t 'delta'  converts to\t delta \n\t 'deltaa' converts to\t deltaa \n\nSome characters can be written using Latin capitals, e.g. using a normal capital B to represent the 'beta' function', where no symbol is needed; 'beta' still converts to beta \n\nExamples:\n\n\t B(x, y) = gammaa (x) gammaa (y) / gammaa (x + y).\n\t alpha + 2 beta = 3 gamma , beta = sigmaa \n\t H sub 0 : mu sub 1 = mu sub 2 \n\n\n6. COLOPHON\n\nThis program was written by <a href='https://callumbeaney.github.io/website/'>Callum Beaney</a> out of want for a quick, easy to use notation converter for use on forums etcetera.  The synchronised scrolling feature is imported from Dmitry Prokashev's excellent <a href='https://github.com/asvd/syncscroll'>Syncscroll</a> library. I received kind debugging assistance from Dart grandmaster <a href='https://github.com/alexobviously'>Alex Baker</a>. You can read the source code <a href='https://github.com/CallumBeaney/Symbolic-Notation-Converter'>here</a>.";
     
     document.getElementById("raw").setSelectionRange(140, 128); 
     submitTextEntry();
@@ -47,7 +47,7 @@ function populateDictionary(lookup)
         let nextLoop_Short = lookup[k].UserInput.toString();
 
         // Each keyword in >indexes is the start of a new symbol group. It must be paired with >titles
-        const indexes = ["equal", "in", "suchthat", "nn", "gammaa", "alpha", "sqr", "aa"];
+        const indexes = ["equal", "all", "suchthat", "nn", "gammaa", "alpha", "sqr", "aa"];
         if (indexes.includes(thisLoop_Short))
         {
             document.getElementById("dict").innerHTML += `<tr><td class="title" colspan="2">${titles[titlecount]}</td></tr>`;
@@ -126,6 +126,8 @@ function replaceSymbols(element, lookup, type)
 
 function spaceRemoval(element) 
 {
+    const shouldJoins = ["∀", "¬", "∃", "{", "(", "𝑓", "∄", "√", ];
+
     let removed = element.split(" ")
     for (n = 0; n < removed.length; n++)
     {
@@ -140,6 +142,7 @@ function spaceRemoval(element)
         ||  removed[k] == "("
         ||  removed[k] == "𝑓" 
         ||  removed[k] == "∄"
+        ||  removed[k] == "∂"
         ||  removed[k] == "√") 
         {
             removed[k] += removed[n]; 
