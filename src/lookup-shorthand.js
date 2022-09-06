@@ -21,6 +21,7 @@ const shorthandLookupTable = [
 
     // Symbolic Notation
     // https://www.rapidtables.com/math/symbols/Logic_Symbols.html
+    {Shorthand: '∀', UserInput: 'forall'},
     {Shorthand: '∀', UserInput: 'all'},
     {Shorthand: '∀', UserInput: 'every'},
     {Shorthand: '∈', UserInput: 'in'},
@@ -29,7 +30,16 @@ const shorthandLookupTable = [
     {Shorthand: '∃', UserInput: 'exist'},
     {Shorthand: '∃', UserInput: 'exists'},
     {Shorthand: '¬', UserInput: 'not'},
-   
+    
+    {Shorthand: '□', UserInput: 'necessarily'},
+    {Shorthand: '◇', UserInput: 'possibly'},
+    {Shorthand: '◇', UserInput: 'possible'},
+    {Shorthand: '⊢', UserInput: 'proves'},
+    {Shorthand: '⊢', UserInput: 'entails'},
+    {Shorthand: '⊨', UserInput: 'models'},
+    {Shorthand: '⊨', UserInput: 'entailss'},
+
+    
     {Shorthand: '⟹', UserInput: 'then'},
     {Shorthand: '⟹', UserInput: 'implies'},
     {Shorthand: '⟺', UserInput: 'iff'},
@@ -38,7 +48,7 @@ const shorthandLookupTable = [
     {Shorthand: '≡', UserInput: 'ioiff'},
     {Shorthand: '⟸', UserInput: 'converse'},
     {Shorthand: '⟸', UserInput: 'conv'},
-
+    
     {Shorthand: '≠', UserInput: '!='},
     {Shorthand: '≠', UserInput: 'dne'},
     {Shorthand: '≠', UserInput: '=/='},
@@ -50,7 +60,12 @@ const shorthandLookupTable = [
     {Shorthand: '∄', UserInput: 'nex'},
     {Shorthand: '∄', UserInput: 'notexist'},
     {Shorthand: '↛', UserInput: '!imply'},
-    {Shorthand: '↛', UserInput: 'nimply'},
+    {Shorthand: '↛', UserInput: 'dnimply'},
+    {Shorthand: '⊬', UserInput: '!prove'},
+    {Shorthand: '⊬', UserInput: 'notprove'},
+    {Shorthand: '⊬', UserInput: 'dnp'},
+    {Shorthand: '⊭', UserInput: '!model'},
+
     
     {Shorthand: '∴', UserInput: 'therefore'},
     {Shorthand: '∴', UserInput: 'andso'},
@@ -59,10 +74,15 @@ const shorthandLookupTable = [
     {Shorthand: '∵', UserInput: 'since'},
 
     {Shorthand: '→', UserInput: 'rarrow'},
+    {Shorthand: '→', UserInput: '>>'},
     {Shorthand: '←', UserInput: 'larrow'},
+    {Shorthand: '←', UserInput: '<<'},
     {Shorthand: '↑', UserInput: 'uarrow'},
+    {Shorthand: '↑', UserInput: '^^'},
     {Shorthand: '↓', UserInput: 'darrow'},
+    {Shorthand: '↓', UserInput: 'vv'},
     {Shorthand: '↔', UserInput: 'lrarrow'},
+    {Shorthand: '↔', UserInput: '<>'},
 
 
     // Set Notation

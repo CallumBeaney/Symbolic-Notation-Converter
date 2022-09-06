@@ -23,6 +23,9 @@ When scrolling through mathematics forums, Wikipedia etc., I noticed that people
 The former is while powerful not always available, can be awkward to use and is primarily designed for typesetting. Substitutions are hard to read and awkward to write. Using JPEGs is often slow. Some HTML features cannot be copy/pasted.  
 This is aimed at making quick, copy-pasteable sentences for use on forums & social media as such, making symbol keywords as intuitive as possible. 
 
+## Reviews
+<img src="src/review.jpg" alt="drawing2" width="400"/>
+
 ## Acknowledgements 
 The synchronised scrolling feature is imported from Dmitry Prokashev's excellent [Syncscroll](https://github.com/asvd/syncscroll) library.  
 I received kind debugging assistance from Dart grandmaster [Alex Baker](https://github.com/alexobviously).
