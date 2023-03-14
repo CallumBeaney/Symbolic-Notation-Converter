@@ -1,5 +1,0 @@
-            if ((i >= 1) && rawWord_lower[i] == "all" && rawWord_lower[i-1] == "for")
-            {
-                rawWord[i-1] = "∀";
-                rawWord.splice(i, 1);  
-            }
